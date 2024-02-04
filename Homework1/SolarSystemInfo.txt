@@ -1,0 +1,8 @@
+# Font: https://es.wikipedia.org/wiki/Semieje_mayor_y_semieje_menor, #https://es.wikipedia.org/wiki/Sistema_solar
+# The Diameter is (1/10)*(R_planet/R_earth), are small but are in proportion, UA =  unidades astronomicas, SM = masas solares, The sun has 1/20 of their real radius and jupyter has 1/5 of their real radius
+Planeta,e,a(UA),m(MS),D,Texture
+Venus,0.007,0.723,2.45e-6,0.095,https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Venus_globe.jpg/1024px-Venus_globe.jpg
+Earth,0.017,1.000,3.00e-6,0.1,https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Earth_Eastern_Hemisphere.jpg/1024px-Earth_Eastern_Hemisphere.jpg
+Mars,0.093,1.524,3.22e-7,0.053,https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Mars_Valles_Marineris_EDIT.jpg/1024px-Mars_Valles_Marineris_EDIT.jpg
+Jupyter,0.049,5.204,9.55e-4,0.24,https://upload.wikimedia.org/wikipedia/commons/e/e2/Jupiter.jpg
+Sun,0,0,1,1,https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/1024px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg
