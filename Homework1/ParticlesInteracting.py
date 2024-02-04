@@ -308,11 +308,11 @@ class CollidingParticles:
         )
 
         self.AngularMomentxPlot = gcurve(
-            color=color.blue, label="Lx", graph=self.AngularMomentGraphics
+            color=color.red, label="Lx", graph=self.AngularMomentGraphics
         )
 
         self.AngularMomentzPlot = gcurve(
-            color=color.blue, label="Lz", graph=self.AngularMomentGraphics
+            color=color.green, label="Lz", graph=self.AngularMomentGraphics
         )
 
     ###########################################################################################################
@@ -464,8 +464,8 @@ class CollidingParticles:
             AngularMomentx += 0
             AngularMomenty += LinearMomentz * x - LinearMomentx * z
         self.AngularMomentyPlot.plot(self.t, AngularMomenty)
-        self.AngularMomentzPlot.plot(self.t, AngularMomenty)
-        self.AngularMomentxPlot.plot(self.t, AngularMomenty)
+        self.AngularMomentzPlot.plot(self.t, AngularMomentz)
+        self.AngularMomentxPlot.plot(self.t, AngularMomentx)
 
     def ComputeEnergySystem(self):
         KinetEnergy, PotentialEnergy = 0, 0
