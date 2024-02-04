@@ -136,9 +136,14 @@ class CollidingParticles:
     # Instructions
 
     def CreateDataFrameInfo(self):
-        self.SolarSystem = pl.read_csv(
-            "Homework1/SolarSystemInfo.txt", skip_rows=2
-        ).to_dicts()
+        try:
+            self.SolarSystem = pl.read_csv(
+                "Homework1/SolarSystemInfo.txt", skip_rows=2
+            ).to_dicts()
+        except:
+            self.SolarSystem = pl.read_csv(
+                "SolarSystemInfo.txt", skip_rows=2
+            ).to_dicts()
 
     def GenerateRemoveOrRebootSpheres(self, Instruction):
         "Generates randoms spheres"
