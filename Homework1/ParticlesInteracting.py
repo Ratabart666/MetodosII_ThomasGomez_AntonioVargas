@@ -259,6 +259,7 @@ class CollidingParticles:
         self.MechanicEnergyPlot.delete()
         self.EnergyGraphics.delete()
         self.LinearMomentGraphics.delete()
+        self.AngularMomentGraphics.delete()
 
     def CreateGraphics(self):
         self.LinearMomentGraphics = graph(
@@ -273,16 +274,24 @@ class CollidingParticles:
             ytitle="E (J)",
             fast=False,
         )
+        self.AngularMomentGraphics = graph(
+            title="Angular Moment (kg*m^2/s) vs Time (s)",
+            xtitle="t (s)",
+            ytitle="L (kg*m^2/s)",
+            fast=False,
+        )
+
         self.LinearMomentxPlot = gcurve(
             color=color.blue,
-            label="Px",
+            label="px",
             graph=self.LinearMomentGraphics,
         )
-        self.LinearMomentzPlot = gcurve(
-            color=color.green, label="Pz", graph=self.LinearMomentGraphics
-        )
+
         self.LinearMomentyPlot = gcurve(
-            color=color.red, label="Py", graph=self.LinearMomentGraphics
+            color=color.red, label="py", graph=self.LinearMomentGraphics
+        )
+        self.LinearMomentzPlot = gcurve(
+            color=color.green, label="pz", graph=self.LinearMomentGraphics
         )
         self.KinetEnergyPlot = gcurve(
             color=color.red, label="K", graph=self.EnergyGraphics
@@ -295,20 +304,12 @@ class CollidingParticles:
         self.MechanicEnergyPlot = gcurve(
             color=color.green, label="E", graph=self.EnergyGraphics
         )
-
-        self.AngularMomentGraphics = graph(
-            title="Angular Moment (kg*m^2/s) vs Time (s)",
-            xtitle="t (s)",
-            ytitle="L (kg*m^2/s)",
-            fast=False,
+        self.AngularMomentxPlot = gcurve(
+            color=color.red, label="Lx", graph=self.AngularMomentGraphics
         )
 
         self.AngularMomentyPlot = gcurve(
             color=color.blue, label="Ly", graph=self.AngularMomentGraphics
-        )
-
-        self.AngularMomentxPlot = gcurve(
-            color=color.red, label="Lx", graph=self.AngularMomentGraphics
         )
 
         self.AngularMomentzPlot = gcurve(

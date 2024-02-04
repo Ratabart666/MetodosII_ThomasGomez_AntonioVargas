@@ -13,7 +13,7 @@ import polars as pl
 # Generar botones
 
 
-class CollidingParticles:
+class SolarSystem:
     def __init__(self):
         "Start the simulation scenario"
         ########################################################################################################################
@@ -27,7 +27,7 @@ class CollidingParticles:
             Choose = input(
                 "Enter the planet that do you want to simulate (Jupyter,Earth,Venus,Mars) : \n"
             )
-        scene.title = "\n Solar systems, cooming soon n bodys, this is a beta UI app, only works run stop button . \n Developer: Github: Ratabart666 \n \n \n"
+        scene.title = "\n Solar systems, cooming soon n bodys, this is a beta UI app, no buttons work.Some trajectories are a little deformed, this is because a not very useful method was used (Euler method). Will soon be implemented with verlet . \n Developer: Github: Ratabart666 \n \n \n"
         scene.caption = "\n Choose the planet: \n \n \n"
         self.BoxSize = 140
         scene.background = color.white
@@ -41,7 +41,7 @@ class CollidingParticles:
         self.GenerateGenerateOrCleanSimulationButton()
 
         # Run simulation
-        self.dt = 0.00001
+        self.dt = 0.001
         self.Run = True
         self.t = 0
         self.G = 4 * (np.pi**2)
@@ -347,7 +347,7 @@ class CollidingParticles:
                 rold = np.sqrt(oldx**2 + oldy**2 + oldz**2)
                 if ractual < rnew and ractual < rold and self.ComputeT == False:
                     scene.append_to_caption(
-                        "EL periodo orbital es {T} años".format(T=self.t)
+                        "EL periodo orbital es {T} años".format(T=round(self.t, 1))
                     )
                     self.ComputeT = True
                     self.Run = False
@@ -364,4 +364,4 @@ class CollidingParticles:
             getattr(self, PlanetName).TuplePosPast = x, y, z
 
 
-CollidingParticles()
+SolarSystem()
