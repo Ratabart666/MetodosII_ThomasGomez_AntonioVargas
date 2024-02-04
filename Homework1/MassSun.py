@@ -14,7 +14,10 @@ def Model(x, m, b):
     return m * x + b
 
 
-Data = pl.read_csv("Homework1/OrbitalDataSimulation.txt", skip_rows=2)
+try:
+    Data = pl.read_csv("Homework1/OrbitalDataSimulation.txt", skip_rows=2)
+except:
+    Data = pl.read_csv("OrbitalDataSimulation.txt", skip_rows=2)
 
 
 x = Data["T^2"]
