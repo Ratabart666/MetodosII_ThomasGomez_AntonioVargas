@@ -1,3 +1,9 @@
+Punto 2
+
+La parte computacional está en Particle interacting.py
+
+
+
 Punto 4
 
 a) Los datos estan en SolarSystemInfo.txt

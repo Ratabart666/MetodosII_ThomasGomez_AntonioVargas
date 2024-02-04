@@ -59,6 +59,7 @@ class CollidingParticles:
                 self.GenerateOrCleanSimulationButton.disabled = True
                 self.ComputeEnergySystem()
                 self.ComputeLinearMomentSystem()
+                self.ComputeAngularMomentSystem()
                 self.t += self.dt
                 self.Actualize()
             else:
@@ -295,6 +296,25 @@ class CollidingParticles:
             color=color.green, label="E", graph=self.EnergyGraphics
         )
 
+        self.AngularMomentGraphics = graph(
+            title="Angular Moment (kg*m^2/s) vs Time (s)",
+            xtitle="t (s)",
+            ytitle="L (kg*m^2/s)",
+            fast=False,
+        )
+
+        self.AngularMomentyPlot = gcurve(
+            color=color.blue, label="Ly", graph=self.AngularMomentGraphics
+        )
+
+        self.AngularMomentxPlot = gcurve(
+            color=color.blue, label="Lx", graph=self.AngularMomentGraphics
+        )
+
+        self.AngularMomentzPlot = gcurve(
+            color=color.blue, label="Lz", graph=self.AngularMomentGraphics
+        )
+
     ###########################################################################################################
     # bind functions buttons
 
@@ -430,6 +450,22 @@ class CollidingParticles:
         self.LinearMomentxPlot.plot(self.t, LinearMomentx)
         self.LinearMomentyPlot.plot(self.t, LinearMomenty)
         self.LinearMomentzPlot.plot(self.t, LinearMomentz)
+
+    def ComputeAngularMomentSystem(self):
+        AngularMomenty, AngularMomentx, AngularMomentz = 0, 0, 0
+        for Id in range(self.TotalSpheres):
+            Sphere = getattr(self, str(Id))
+            vx, vy, vz = Sphere.TupleVel
+            x, y, z = Sphere.TuplePos
+            LinearMomentx = self.m * vx
+            LinearMomenty = self.m * vy
+            LinearMomentz = self.m * vz
+            AngularMomentz += 0
+            AngularMomentx += 0
+            AngularMomenty += LinearMomentz * x - LinearMomentx * z
+        self.AngularMomentyPlot.plot(self.t, AngularMomenty)
+        self.AngularMomentzPlot.plot(self.t, AngularMomenty)
+        self.AngularMomentxPlot.plot(self.t, AngularMomenty)
 
     def ComputeEnergySystem(self):
         KinetEnergy, PotentialEnergy = 0, 0
