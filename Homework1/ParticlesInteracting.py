@@ -19,7 +19,7 @@ class CollidingParticles:
         # Title,caption, dimentions of the box , initial range of the random spheres , numbers of spheres , spheres radius
         # graphics
 
-        scene.title = "\n Particles in colitions and interacting only between them. Version 1.0.0, the program is in developing and is  unstable in some situations and for now the numerical methods (Euler) is some . \n Developer: Github: Ratabart666 \n \n \n"
+        scene.title = "\n Particles in colitions and interacting only between them. Version 1.0.0, the program is in developing and is  unstable in some situations and for now the numerical methods (Euler) is some bad for some cases . \n Developer: Github: Ratabart666 \n \n \n"
         scene.caption = "\n Choose the parameteres: \n \n \n"
         self.BoxSize = 140
         self.SpheresInitialRange = (
@@ -69,9 +69,19 @@ class CollidingParticles:
                 hasattr(self, str(0))
             ):  # If there is not spheres then the run button is disabled
                 self.RunOrStopSimulationButton.disabled = True
+                self.TotalSpheresSlider.disabled = False
+                self.MassSlider.disabled = False
+                self.SpeedSimulationSlider.disabled = False
+                self.StopTimeSlider.disabled = False
+                self.RigiditySlider.disabled = False
 
             else:
                 self.RunOrStopSimulationButton.disabled = False
+                self.TotalSpheresSlider.disabled = True
+                self.MassSlider.disabled = True
+                self.SpeedSimulationSlider.disabled = True
+                self.StopTimeSlider.disabled = True
+                self.RigiditySlider.disabled = True
 
     ###########################################################################################################
     # Generate Buttons
@@ -382,7 +392,7 @@ class CollidingParticles:
 
                 if d < 2 * self.SphereRadius:
                     DirectionForce = (SpherePos - NeighborSpherePos) / d
-                    ModuleForce = 5 * (2 * self.SphereRadius - d) ** 3
+                    ModuleForce = self.k * (2 * self.SphereRadius - d) ** 3
                     Force = Force + ModuleForce * DirectionForce
         return tuple(Force)
 
@@ -401,11 +411,13 @@ class CollidingParticles:
                 #    return np.array([0, 0, 0])
 
                 if d < 2 * self.SphereRadius:
-                    PotentialEnergy += (1 / 2) * (
+                    PotentialEnergy += (
                         self.k * (1 / 4) * (2 * self.SphereRadius - d) ** 4
                     )
 
-        return PotentialEnergy
+        return (
+            1 / 2
+        ) * PotentialEnergy  # 1/2 because the potential for 2 particles are the same, view clasical mechanics of goldstein for understand
 
     def ComputeLinearMomentSystem(self):
         LinearMomentx, LinearMomenty, LinearMomentz = 0, 0, 0
