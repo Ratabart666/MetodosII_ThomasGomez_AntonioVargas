@@ -6,5 +6,3 @@
 User@Laptop:~$ pip install polars vpython
 foo
 ```
-
-* For run all the programs please put your path in the directory $Home/LocalPathRepository if you run in a other folder, some txt files will not read ( The path will be incorrect)
