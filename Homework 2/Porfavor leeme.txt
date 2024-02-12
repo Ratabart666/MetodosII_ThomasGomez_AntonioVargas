@@ -1,5 +1,5 @@
 Si tiene un paso de e-7 se obtiene que la velocidad angular de la presición de mercurio nos da del mismo orden, no nos da
 de manera exacta ya que este paso no es lo suficientemente fino en el tiempo.
 
-Si desea tener un mejor resultado coloque un paso de e-8, sin embargo se demorará alrededor de 2 horas en simular todos los datos.
+Si desea tener un mejor resultado coloque un paso de e-8, sin embargo se demorará alrededor de 6 horas en simular todos los datos.
 No se suben los datos ya que el computador utilizado demora un tiempo exagerado y presenta trabas, se utilizan entonces solo 2 datos
