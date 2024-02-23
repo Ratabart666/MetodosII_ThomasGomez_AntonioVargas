@@ -49,7 +49,7 @@ class SolarSystem:
         self.GenerateGenerateOrCleanSimulationButton()
 
         # Run simulation
-        self.dt = 1e-8
+        self.dt = 1e-7
         self.Run = True
         self.t = 0
         self.G = 4 * (np.pi**2)
