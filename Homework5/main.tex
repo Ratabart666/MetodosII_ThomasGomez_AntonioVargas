@@ -11,7 +11,7 @@
 \begin{document}
 	
 	
-	\title{Punto 3 Álgebra abstracta}
+	\title{Punto 3 Métodos computacionales II}
 	\author{Thomas Gomez}
 	\date{\today}
 	\maketitle
@@ -27,7 +27,7 @@ aproximando las derivadas mediante diferencias finitas(para la primera derivada 
 
 \begin{equation}
 \begin{gathered}
-\frac{u_{i,j}^{n+1}-2u_{i,j}^n+u_{i,j,k}^{n-1}}{\Delta t^2} =\alpha^2( \frac{u_{i,j+1}-2u_{i,j}+u_{i,j-1}}{\rho^2 \Delta \varphi^2} + \frac{u_{i+1,j}-2u_{i,j}+u_{i-1,j}}{\Delta \rho^2} \\ + \frac{u_{i,j}-u_{i-1,j}}{\rho \Delta \rho})
+\frac{u_{i,j}^{n+1}-2u_{i,j}^n+u_{i,j,k}^{n-1}}{\Delta t^2} =\alpha^2( \frac{u_{i,j+1}^n-2u_{i,j}^n+u_{i,j-1}^n}{\rho^2 \Delta \varphi^2} + \frac{u_{i+1,j}^n-2u_{i,j}^n+u_{i-1,j}^n}{\Delta \rho^2} \\ + \frac{u_{i,j}^n-u_{i-1,j}^n}{\rho \Delta \rho})
 \end{gathered}
 \end{equation}
 
@@ -37,17 +37,17 @@ Se obtiene:
 
 \begin{equation}
 \begin{gathered}
-u_{i,j}^{n+1}-2u_{i,j}^n+u_{i,j}^{n-1} = \alpha^2 \Delta t^2( \frac{u_{i,j+1}-2u_{i,j}+u_{i,j-1}}{\rho^2 \Delta \varphi^2} \\
-+ \frac{u_{i+1,j}-2u_{i,j}+u_{i-1,j}}{\Delta \rho^2} + \frac{u_{i,j}-u_{i-1,j}}{\rho \Delta \rho})\\
-= \frac{\alpha^2 \Delta t^2}{ \Delta \rho^2}( \frac{\Delta \rho^2}{\rho^2\Delta \varphi^2} \cdot (u_{i,j+1}-2u_{i,j}+u_{i,j-1}) + u_{i+1,j}-2u_{i,j}+u_{i-1,j} \\ +\frac{\Delta \rho(u_{i,j}-u_{i-1,j})}{\rho}) \\
-= \nu^2 ( [\frac{\lambda}{\rho}]^2 (u_{i,j+1}-2u_{i,j}+u_{i,j-1}) +  u_{i+1,j}-2u_{i,j}+u_{i-1,j} + \frac{\Delta \rho}{\rho} [ u_{i,j} -u_{i-1,j} ] )
+u_{i,j}^{n+1}-2u_{i,j}^n+u_{i,j}^{n-1} = \alpha^2 \Delta t^2( \frac{u_{i,j+1}^n-2u_{i,j}^n+u_{i,j-1}^n}{\rho^2 \Delta \varphi^2} \\
++ \frac{u_{i+1,j}^n-2u_{i,j}^n+u_{i-1,j}^n}{\Delta \rho^2} + \frac{u_{i,j}^n-u_{i-1,j}^n}{\rho \Delta \rho})\\
+= \frac{\alpha^2 \Delta t^2}{ \Delta \rho^2}( \frac{\Delta \rho^2}{\rho^2\Delta \varphi^2} \cdot (u_{i,j+1}^n-2u_{i,j}^n+u_{i,j-1}^n) + u_{i+1,j}^n-2u_{i,j}^n+u_{i-1,j}^n \\ +\frac{\Delta \rho(u_{i,j}^n-u_{i-1,j}^n)}{\rho}) \\
+= \nu^2 ( [\frac{\lambda}{\rho}]^2 (u_{i,j+1}^n-2u_{i,j}^n+u_{i,j-1}^n) +  u_{i+1,j}^n-2u_{i,j}^n+u_{i-1,j}^n + \frac{\Delta \rho}{\rho} [ u_{i,j}^n -u_{i-1,j}^n ] )
 \end{gathered}
 \end{equation}
 
 Por lo tanto:
 
 \begin{equation}
-u_{i,j}^{n+1} = \nu^2 ( [\frac{\lambda}{\rho}]^2 (u_{i,j+1}-2u_{i,j}+u_{i,j-1}) +  u_{i+1,j}-2u_{i,j}+u_{i-1,j} + \frac{\Delta \rho}{\rho} [ u_{i,j} -u_{i-1,j} ] ) + 2u_{i,j}^n-u_{i,j}^{n-1}
+u_{i,j}^{n+1} = \nu^2 ( [\frac{\lambda}{\rho}]^2 (u_{i,j+1}^n-2u_{i,j}^n+u_{i,j-1}^n) +  u_{i+1,j}^n-2u_{i,j}^n+u_{i-1,j}^n + \frac{\Delta \rho}{\rho} [ u_{i,j}^n -u_{i-1,j}^n ] ) + 2u_{i,j}^n-u_{i,j}^{n-1}
 \end{equation}
 
 $\square$
