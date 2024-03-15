@@ -1,0 +1,62 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{sagetex}
+
+
+\begin{document}
+	
+	
+	\title{Punto 3 Álgebra abstracta}
+	\author{Thomas Gomez}
+	\date{\today}
+	\maketitle
+	
+	
+En primera instancia note que el operador de laplace en coordenadas cílindricas es:
+
+\begin{equation}
+\nabla^2 u = \frac{\partial^2 u}{\partial \rho^2} + \frac{1}{\rho}\frac{\partial u}{\partial \rho}+\frac{1}{\rho^2} \frac{\partial^2 u}{\partial \varphi^2}
+\end{equation}
+
+aproximando las derivadas mediante diferencias finitas(para la primera derivada se utiliza la diferencia hacia atrás y para las segundas derivadas se utiliza la formúla habitual) y teniendo en cuenta la ecuación de onda ($\partial_{tt} u = c\nabla^2 u $),se tiene:
+
+\begin{equation}
+\begin{gathered}
+\frac{u_{i,j}^{n+1}-2u_{i,j}^n+u_{i,j,k}^{n-1}}{\Delta t^2} =\alpha^2( \frac{u_{i,j+1}-2u_{i,j}+u_{i,j-1}}{\rho^2 \Delta \varphi^2} + \frac{u_{i+1,j}-2u_{i,j}+u_{i-1,j}}{\Delta \rho^2} \\ + \frac{u_{i,j}-u_{i-1,j}}{\rho \Delta \rho})
+\end{gathered}
+\end{equation}
+
+Defina $\lambda \coloneq \frac{\Delta \rho}{\Delta \varphi}, \nu \coloneq \frac{\alpha \Delta t}{\Delta \rho}$
+
+Se obtiene:
+
+\begin{equation}
+\begin{gathered}
+u_{i,j}^{n+1}-2u_{i,j}^n+u_{i,j}^{n-1} = \alpha^2 \Delta t^2( \frac{u_{i,j+1}-2u_{i,j}+u_{i,j-1}}{\rho^2 \Delta \varphi^2} \\
++ \frac{u_{i+1,j}-2u_{i,j}+u_{i-1,j}}{\Delta \rho^2} + \frac{u_{i,j}-u_{i-1,j}}{\rho \Delta \rho})\\
+= \frac{\alpha^2 \Delta t^2}{ \Delta \rho^2}( \frac{\Delta \rho^2}{\rho^2\Delta \varphi^2} \cdot (u_{i,j+1}-2u_{i,j}+u_{i,j-1}) + u_{i+1,j}-2u_{i,j}+u_{i-1,j} \\ +\frac{\Delta \rho(u_{i,j}-u_{i-1,j})}{\rho}) \\
+= \nu^2 ( [\frac{\lambda}{\rho}]^2 (u_{i,j+1}-2u_{i,j}+u_{i,j-1}) +  u_{i+1,j}-2u_{i,j}+u_{i-1,j} + \frac{\Delta \rho}{\rho} [ u_{i,j} -u_{i-1,j} ] )
+\end{gathered}
+\end{equation}
+
+Por lo tanto:
+
+\begin{equation}
+u_{i,j}^{n+1} = \nu^2 ( [\frac{\lambda}{\rho}]^2 (u_{i,j+1}-2u_{i,j}+u_{i,j-1}) +  u_{i+1,j}-2u_{i,j}+u_{i-1,j} + \frac{\Delta \rho}{\rho} [ u_{i,j} -u_{i-1,j} ] ) + 2u_{i,j}^n-u_{i,j}^{n-1}
+\end{equation}
+
+$\square$
+
+
+
+
+
+
+
+
+\end{document}
