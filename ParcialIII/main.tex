@@ -1,0 +1,48 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{sagetex}
+
+
+\begin{document}
+	
+	
+	\title{Estabilidad de la ecuación de onda}
+	\author{Thomas Gomez, Antonio Vargas}
+	\date{\today}
+	\maketitle
+
+\textbf{Solución:}
+
+La ecuación de onda para una dimensión se reduce a:
+
+\begin{equation}
+\frac{\partial^2 u}{\partial^2} = \alpha^2 \frac{\partial^2 u}{\partial^2	}
+\end{equation}
+
+La estabilidad de una ecuación diferencial se refiere, suponga ahora que el método se resuelve a través del método de diferencias finitas, la solución con diferencias finitas es:
+
+\begin{equation}
+u_{i}^{l+1} = 2(1-\lambda^2)u_i^l + \lambda^2(u_{i+1}^l + u_{i-1}^l) - u_i^{l-1} 
+\end{equation}
+
+donde $\lambda \coloneq \frac{\alpha \Delta t}{\Delta x}$
+
+Note que $1-\lambda^2$ dicta el factor de amplificación , de clase se sabe que la magnitud de este valor debe ser menor a uno para que la solución sea estable, además dado que $\lambda^2$ es un número real positivo, se tiene
+
+\begin{equation}
+\begin{gathered}
+2(1 - \lambda^2 ) \leq 1 \\
+1 - \lambda^2 \leq \frac{1}{2}
+\end{gathered}
+\end{equation}
+
+Suponga que $\lambda > 1$, entonces se tiene que $|1-\lambda^2| > 0 $ lo que implica que el factor de amplificación
+
+
+
+\end{document}

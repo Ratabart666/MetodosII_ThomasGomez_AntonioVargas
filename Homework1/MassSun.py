@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import polars as pl
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
